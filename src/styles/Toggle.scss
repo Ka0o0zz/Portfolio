@@ -1,0 +1,64 @@
+.hide-checkbox {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.toggle {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 30PX;
+    background: rgba(22, 27, 34, 1);
+    border-radius: 50px;
+    transition: 500ms;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.toggle-button {
+    position: absolute;
+    display: inline-block;
+    top: 2.5px;
+    left: 6px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff;
+    overflow: hidden;
+    transition: all 500ms ease-out;
+    z-index: 100;
+}
+
+.toggle-item {
+    position: absolute;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    right: 23px;
+    bottom: 25px;
+    font-size: 20px;
+}
+
+.hide-checkbox:checked+.toggle .toggle-button {
+    transform: translateX(24px);
+}
+
+
+.hide-checkbox:checked+.toggle .toggle-item {
+    animation: move 2;
+    transform: none;
+    box-shadow: none;
+}
+
+.hide-checkbox:checked+.toggle .toggle-item {
+    width: 40px;
+    height: 10px;
+    border-radius: 10px;
+    left: 1px;
+    top: 0px;
+    box-shadow: none;
+}
+
+

@@ -1,0 +1,29 @@
+//import pages styles
+@use '@styles/App.scss';
+@use '@styles/Navbar.scss';
+@use '@styles/Toggle.scss';
+
+//impot fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+$principal-font: 'Poppins', sans-serif;
+$primary-color-bg: rgba(13, 17, 23, 1);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  font-family: $principal-font;
+}
+
+body{
+  color: #fff;
+  background: $primary-color-bg;
+  
+  a{
+    color: #fff;
+  }
+}
