@@ -1,0 +1,261 @@
+$font-gray: #8C9AA2;
+$principal-font: 'Poppins', sans-serif;
+
+.Header {
+
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+
+
+
+    div {
+        width: 50%;
+
+        &.intro-my-self {
+            padding-left: 7rem;
+
+            flex-direction: column;
+            align-items: flex-start;
+
+            background: url('../../public/circle-bg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            h1 {
+                position: relative;
+                top: -20px;
+            }
+
+            h2 {
+                position: relative;
+                top: -40px;
+            }
+
+            p {
+                font-size: 24px;
+                color: $font-gray;
+            }
+
+            div {
+                position: relative;
+                top: 120px;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 20px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .mouse {
+                width: 100%;
+                top: 80px;
+                left: 50px;
+                display: flex;
+                justify-content: flex-end;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            @media screen and (max-width: 900px) {
+                padding: 0 2rem;
+
+                h1,
+                h2 {
+                    font-size: 32px;
+                }
+
+                h1 {
+                    position: relative;
+                    top: -20px;
+                }
+
+                h2 {
+                    position: relative;
+                    top: -20px;
+                }
+
+                p {
+                    font-size: 20px;
+                }
+
+                background: none;
+
+                div,
+                .mouse {
+                    display: none;
+                }
+            }
+        }
+
+        &.visual-code {
+
+            flex-direction: column;
+
+            .wrapper {
+
+                width: 550px;
+                height: 500px;
+                perspective: 1000px;
+
+                .container {
+                    width: 550px;
+                    height: 500px;
+                    background-color: rgba(24, 27, 33, 1);
+                    border-radius: 10px;
+
+
+
+                    div:nth-child(1) {
+                        width: 100%;
+                        display: flex;
+                        padding: 10px 5px;
+
+                        border-bottom: 1px solid rgba(217, 217, 217, 1);
+
+                        span {
+                            display: block;
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            margin: 8px;
+                            cursor: pointer;
+
+                            &:nth-child(1) {
+                                background-color: rgba(252, 97, 87, 1);
+                            }
+
+                            &:nth-child(2) {
+                                background-color: rgba(254, 188, 46, 1);
+                            }
+
+                            &:nth-child(3) {
+                                background-color: rgba(42, 202, 63, 1);
+                            }
+                        }
+                    }
+
+                    div:nth-child(2) {
+                        padding: 40px 30px;
+                        width: 100%;
+
+                        h3 {
+                            color: rgba(169, 84, 100, 1);
+                            margin: 10px;
+
+                            &.margin {
+                                margin-left: 30px;
+                            }
+                        }
+
+                        span {
+                            color: rgba(137, 204, 224, 1);
+
+                            &.text {
+                                color: #fff;
+                            }
+
+                            &.class {
+                                color: rgba(175, 130, 203, 1);
+                            }
+
+                            &.className {
+                                color: rgba(168, 188, 120, 1);
+                            }
+
+                            &.comment {
+                                color: rgba(140, 154, 162, 1);
+                            }
+                        }
+                    }
+                }
+
+
+
+                @media screen and (max-width: 900px) {
+                    width: 300px;
+                    height: 380px;
+                    margin-top: 20px;
+
+                    .container {
+                        width: 300px;
+                        height: 380px;
+
+                        div:nth-child(1) {
+                            span {
+                                width: 10px;
+                                height: 10px;
+                                margin: 4px;
+                            }
+                        }
+
+                        div:nth-child(2) {
+                            padding: 10px 5px;
+
+                            h3 {
+                                font-size: 15px;
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            .ticket {
+                position: absolute;
+                right: 20px;
+                bottom: 150px;
+
+                padding: 20px;
+                width: 200px;
+                background-color: rgba(43, 47, 66, 1);
+                color: rgba(140, 154, 162, 1);
+                border-radius: 5px;
+                border: 1px solid rgba(32, 156, 254, 1);
+
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            button {
+                margin-top: 30px;
+                padding: 12px 60px;
+                border: none;
+                border-radius: 10px;
+                font-family: $principal-font;
+
+                background: rgb(179, 116, 248);
+                background: linear-gradient(90deg, rgba(179, 116, 248, 1) 0%, rgba(76, 165, 255, 1) 100%);
+
+                color: #fff;
+                font-weight: 500;
+                font-size: 18px;
+
+                @media screen and (min-width: 900px) {
+                    display: none;
+                }
+            }
+
+        }
+
+    }
+
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+
+        div {
+            width: 100%;
+        }
+    }
+
+}

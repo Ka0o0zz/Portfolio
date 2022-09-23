@@ -11,8 +11,8 @@ export const Navbar = () => {
 
     if(width < 900){
       return{
-        width: 104,
-        height: 50
+        width: 124,
+        height: 60
       }
     }
 

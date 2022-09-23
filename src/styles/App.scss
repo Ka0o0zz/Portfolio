@@ -1,7 +1,11 @@
-
 $principal-font: 'Poppins', sans-serif;
 $primary-color-bg: rgba(13, 17, 23, 1);
 
-.hola{
-  width: 100%;
+.main-app {
+  padding: 100px 0rem 0 0rem;
+
+  @media screen and (max-width: 900px) {
+    padding: 150px 0rem 0 0rem;
+
+  }
 }
