@@ -51,8 +51,8 @@ export const Navbar = () => {
 
       <div className="toggle__navbar">
         <div>
-          <Toggle emojiTrue="☀️" emojiFalse="🌙" section="nav" state={light} updateState={changeTema}/>
-          <Toggle emojiTrue="es" emojiFalse="us" section="nav" state={spanish} updateState={changeLanguage}/>
+          <Toggle emojiTrue="☀️" emojiFalse="🌙" section="nav"  state={light}  updateState={changeTema}/>
+          <Toggle emojiTrue="es" emojiFalse="us" section="nav"  state={spanish}  updateState={changeLanguage}/>
         </div>
       </div>
 
