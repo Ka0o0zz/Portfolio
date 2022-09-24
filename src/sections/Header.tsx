@@ -5,15 +5,19 @@ import { motion } from "framer-motion";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { VisualCode } from "components/VisualCode";
 import { animationLeftToRight, opacity0To100 } from "helpers/listAnimations";
+import { useAppContext } from "@context/temaContext";
 
 export const Header = () => {
+
+  const { light } = useAppContext()
+
   return (
     <section className="Header">
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
-        className="app__flex intro-my-self"
+        className={`app__flex intro-my-self ${light ? 'light' : ''}`}
       >
         <motion.h1 variants={animationLeftToRight}>Hey I Am David 👋</motion.h1>
         <motion.h2 variants={animationLeftToRight} className="font-degrade-color">Fullstack Developer</motion.h2>
@@ -27,7 +31,7 @@ export const Header = () => {
         <motion.div 
           variants={opacity0To100}
           className="mouse">
-          <Image src="/mouse.png" alt="" width={70} height={70} />
+          <Image src={light ? "/mouse-light.png" : "/mouse.png"} alt="" width={70} height={70} />
         </motion.div>
       </motion.div>
 

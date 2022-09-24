@@ -22,6 +22,12 @@ $principal-font: 'Poppins', sans-serif;
             background-size: contain;
             background-repeat: no-repeat;
 
+            &.light {
+                background: url('../../public/circle-bg-light.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
             h1 {
                 position: relative;
                 top: -20px;
@@ -257,5 +263,4 @@ $principal-font: 'Poppins', sans-serif;
             width: 100%;
         }
     }
-
 }

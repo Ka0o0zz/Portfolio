@@ -1,4 +1,5 @@
-$primary-color-bg: rgba(13, 17, 23, 1);
+$dark-color-bg: rgba(13, 17, 23, 1);
+$light-color-bg: #f5f9ff;
 
 nav {
     width: 100%;
@@ -9,6 +10,9 @@ nav {
 
     padding: 0.5rem 2rem;
     background: rgba(13, 17, 23, 0.25);
+    &.light{
+        background: #f5f9ff25;
+    }
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-bottom: 1px solid rgba(13, 17, 23, 0.18);
@@ -133,7 +137,7 @@ nav {
         right: 0;
         z-index: -1;
 
-        background: $primary-color-bg;
+        background: $dark-color-bg;
 
         padding: 1rem 1.5rem;
         padding-top: 80px ;

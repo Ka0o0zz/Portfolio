@@ -1,3 +1,4 @@
+import { useAppContext } from "@context/temaContext";
 import { useHandleWidth } from "hooks/useHandleWidth";
 import Image from "next/image";
 import { NavbarMenu } from "./NavBarMenu";
@@ -6,6 +7,7 @@ import { Toggle } from "./Toggle";
 export const Navbar = () => {
 
   const width = useHandleWidth()
+  const { light, spanish, changeTema, changeLanguage} = useAppContext()
 
   const handleLogoSize = () =>{
 
@@ -25,11 +27,11 @@ export const Navbar = () => {
   const widthImage = handleLogoSize()
 
   return (
-    <nav>
-      
+    <nav className={light ? 'light' : ''}>
+    
       <div>
         <Image
-          src='/logo-desktop.png'
+          src={light ? '/logo-desktop-light.png' : '/logo-desktop.png'}
           alt="logo david morales"
           width={widthImage.width}
           height={widthImage.height}
@@ -49,8 +51,8 @@ export const Navbar = () => {
 
       <div className="toggle__navbar">
         <div>
-          <Toggle emojiTrue="☀️" emojiFalse="🌙" section="nav"/>
-          <Toggle emojiTrue="es" emojiFalse="us" section="nav"/>
+          <Toggle emojiTrue="☀️" emojiFalse="🌙" section="nav" state={light} updateState={changeTema}/>
+          <Toggle emojiTrue="es" emojiFalse="us" section="nav" state={spanish} updateState={changeLanguage}/>
         </div>
       </div>
 
