@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import { motion } from 'framer-motion'
+import { animationRightToLeft } from "helpers/listAnimations";
 
 export const VisualCode = () => {
   const wrapper: any = useRef();
@@ -32,11 +34,12 @@ export const VisualCode = () => {
   };
 
   return (
-    <div
+    <motion.div
       className="wrapper"
       ref={wrapper}
       onMouseMove={wrapperMove}
       onMouseLeave={wrapperLeave}
+      variants={animationRightToLeft}
     >
       <div className="container" ref={container} style={transformTicket}>
         <div>
@@ -91,6 +94,6 @@ export const VisualCode = () => {
           </h3>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

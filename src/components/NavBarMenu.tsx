@@ -1,5 +1,4 @@
-import { motion, useCycle } from "framer-motion";
-import { useRef, useState } from "react";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Toggle } from "./Toggle";
 import { BsLinkedin, BsGithub } from 'react-icons/bs'
 
@@ -42,22 +41,7 @@ const MenuToggle = ({ toggle }: any) => (
 
 export const NavbarMenu = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [animateCard, setAnimateCard] = useState<object | any>({ x: [300, 0] });
 
-  const handleCloseAnimateMenu = () => {
-    if (isOpen) {
-      setAnimateCard({ x: [0, 1000],});
-
-      setTimeout(() => {
-        toggleOpen();
-      }, 500);
-      return;
-    }
-    setAnimateCard({ x: [300, 0] });
-    setTimeout(() => {
-      toggleOpen();
-    }, 100);
-  };
   return (
     <>
       <motion.div
@@ -65,52 +49,55 @@ export const NavbarMenu = () => {
         animate={isOpen ? "open" : "closed"}
         className="button__resposive_nav"
       >
-        <MenuToggle toggle={() => handleCloseAnimateMenu()} />
+        <MenuToggle toggle={() => toggleOpen()} />
       </motion.div>
 
-      {isOpen && (
-        <motion.div
-          whileInView={animateCard}
-          transition={{ duration: 0.85, ease: "easeInOut" }}
-          className="app__navbar-list-menu"
-        >
-          <h3>Sections</h3>
-          <ul>
-            {["home", "about", "contact", "works", "skills"].map(
-              (item: string, index: number) => (
-                <li key={`link-menu-${item}-${index}`}>
-                  <div />
-                  <a href="#">{item}</a>
-                </li>
-              )
-            )}
-          </ul>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            whileInView={{ x: [300, 0] }}
+            transition={{ duration: 0.85, ease: "easeInOut" }}
+            exit={{ x: [0, 1000]}}
+            className="app__navbar-list-menu"
+          >
+            <h3>Sections</h3>
+            <ul>
+              {["home", "about", "contact", "works", "skills"].map(
+                (item: string, index: number) => (
+                  <li key={`link-menu-${item}-${index}`}>
+                    <div />
+                    <a href="#">{item}</a>
+                  </li>
+                )
+              )}
+            </ul>
 
-          <h3>Languages</h3>
-          <ul>
-            <li>
-              English
-            </li>
-            <li>
-              Espanish
-            </li>
-          </ul>
+            <h3>Languages</h3>
+            <ul>
+              <li>
+                English
+              </li>
+              <li>
+                Spanish
+              </li>
+            </ul>
 
-          <h3>Settings</h3>
-          <Toggle emojiTrue="☀️" emojiFalse="🌙" section="menu"/>
+            <h3>Settings</h3>
+            <Toggle emojiTrue="☀️" emojiFalse="🌙" section="menu"/>
 
-          <h3>Social Media</h3>
-          <ul>
-            <li>
-              <BsGithub /> Github
-            </li>
-            <li>
-              <BsLinkedin /> Linkedin
-            </li>
-          </ul>
+            <h3>Social Media</h3>
+            <ul>
+              <li>
+                <BsGithub /> Github
+              </li>
+              <li>
+                <BsLinkedin /> Linkedin
+              </li>
+            </ul>
 
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
