@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useContext, useState } from "react";
 
 const appDefaultValues: TAppConextType = {
@@ -6,11 +7,14 @@ const appDefaultValues: TAppConextType = {
   changeTema: () => {},
   changeLanguage: () => {},
   initialTema: (state: boolean | any) => {},
+  initialLanguage: (state: boolean | any) => {},
 };
 
 export const appContext = createContext<TAppConextType>(appDefaultValues);
 
 export const AppProvider = ({ children }: TAppContextProps) => {
+  const router = useRouter();
+
   const [light, setLight] = useState<boolean>(appDefaultValues.light);
   const [spanish, setSpanish] = useState<boolean>(appDefaultValues.spanish);
 
@@ -21,7 +25,18 @@ export const AppProvider = ({ children }: TAppContextProps) => {
 
   const initialTema = (state: boolean) => setLight(state);
 
-  const changeLanguage = () => setSpanish(!spanish);
+  const changeLanguage = () => {
+    localStorage.setItem("spanish", `${!spanish}`);
+    setSpanish(!spanish);
+
+    router.push(router.pathname, router.pathname, {
+      locale: !spanish ? "es" : "en",
+    });
+  };
+
+  const initialLanguage = (state: boolean) => {
+    setSpanish(state);
+  };
 
   const value = {
     light,
@@ -29,6 +44,7 @@ export const AppProvider = ({ children }: TAppContextProps) => {
     changeTema,
     changeLanguage,
     initialTema,
+    initialLanguage,
   };
 
   return <appContext.Provider value={value}>{children}</appContext.Provider>;

@@ -4,7 +4,15 @@ import Image from "next/image";
 import { NavbarMenu } from "./NavBarMenu";
 import { Toggle } from "./Toggle";
 
-export const Navbar = () => {
+const mapLinksBar = (linksNavBar: [string]) =>
+  linksNavBar.map((item: string, index: number) => (
+    <li key={`link-${item}-${index}`}>
+      <a href={`#${item}`}>{item}</a>
+      <div />
+    </li>
+  ));
+
+export const Navbar = ({ nav: { linksNavBar, menuNavBar } }: TNav) => {
   const width = useHandleWidth();
   const { light, spanish, changeTema, changeLanguage } = useAppContext();
 
@@ -35,16 +43,7 @@ export const Navbar = () => {
         />
       </div>
 
-      <ul className="link__navbar">
-        {["home", "about", "works", "skills", "contact"].map(
-          (item: string, index: number) => (
-            <li key={`link-${item}-${index}`}>
-              <a href={`#${item}`}>{item}</a>
-              <div />
-            </li>
-          )
-        )}
-      </ul>
+      <ul className="link__navbar">{mapLinksBar(linksNavBar)}</ul>
 
       <div className="toggle__navbar">
         <div>
@@ -66,7 +65,7 @@ export const Navbar = () => {
       </div>
 
       <div className="app__navbar-menu">
-        <NavbarMenu />
+        <NavbarMenu menuNavBar={menuNavBar} />
       </div>
     </nav>
   );

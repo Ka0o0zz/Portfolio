@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "linksNavBar": [
+      "inicio",
+      "sobre mi",
+      "trabajos",
+      "habilidades",
+      "contacto"
+    ],
+    "menuNavBar": {
+      "sections": {
+        "label": "Secciones",
+        "content": ["inicio", "sobre mi", "trabajos", "habilidades", "contacto"]
+      },
+      "languages": {
+        "label": "Lenguajes",
+        "content": ["Ingles", "Español"]
+      },
+      "settings": {
+        "label": "Ajustes"
+      },
+      "socialMedia": {
+        "label": "Social Media"
+      }
+    }
+  }
+}

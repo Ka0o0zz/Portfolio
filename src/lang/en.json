@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "linksNavBar": ["home", "about", "works", "skills", "contact"],
+    "menuNavBar": {
+      "sections": {
+        "label": "Sections",
+        "content": ["home", "about", "works", "skills", "contact"]
+      },
+      "languages": {
+        "label": "Languages",
+        "content": ["English", "Spanish"]
+      },
+      "settings": {
+        "label": "Settings"
+      },
+      "socialMedia": {
+        "label": "Social Media"
+      }
+    }
+  }
+}

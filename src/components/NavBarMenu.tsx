@@ -43,8 +43,19 @@ const MenuToggle = ({ toggle }: any) => (
     </svg>
   </button>
 );
+const mapLinksMenuBar = (linksNavBar: [string]) =>
+  linksNavBar.map((item: string, index: number) => (
+    <li key={`link-menu-${item}-${index}`}>
+      <div />
+      <a href={`#${item}`}>{item}</a>
+    </li>
+  ));
 
-export const NavbarMenu = () => {
+export const NavbarMenu = ({
+  menuNavBar: { sections, languages, settings, socialMedia },
+}: {
+  menuNavBar: TMenuNavBar;
+}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const { light, changeTema } = useAppContext();
 
@@ -66,25 +77,17 @@ export const NavbarMenu = () => {
             exit={{ x: [0, 1000] }}
             className={`app__navbar-list-menu ${light ? "light" : ""}`}
           >
-            <h3>Sections</h3>
+            <h3>{sections.label}</h3>
+            <ul>{mapLinksMenuBar(sections.content)}</ul>
+
+            <h3>{languages.label}</h3>
             <ul>
-              {["home", "about", "contact", "works", "skills"].map(
-                (item: string, index: number) => (
-                  <li key={`link-menu-${item}-${index}`}>
-                    <div />
-                    <a href="#">{item}</a>
-                  </li>
-                )
-              )}
+              {languages.content.map((language: string) => (
+                <li key={`language-${language}`}>{language}</li>
+              ))}
             </ul>
 
-            <h3>Languages</h3>
-            <ul>
-              <li>English</li>
-              <li>Spanish</li>
-            </ul>
-
-            <h3>Settings</h3>
+            <h3>{settings.label}</h3>
             <Toggle
               emojiTrue="☀️"
               emojiFalse="🌙"
@@ -93,7 +96,7 @@ export const NavbarMenu = () => {
               updateState={changeTema}
             />
 
-            <h3>Social Media</h3>
+            <h3>{socialMedia.label}</h3>
             <ul>
               <li>
                 <BsGithub /> Github
