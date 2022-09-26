@@ -1,10 +1,13 @@
+import { toBoolean } from "helpers/toBoolean";
 import { createContext, useContext, useState } from "react";
+
 
 const appDefaultValues: TAppConextType = {
   light: false,
   spanish: false,
   changeTema: () => {},
-  changeLanguage: () => {}
+  changeLanguage: () => {},
+  initialTema: (state: boolean|any) => {}
 };
 
 export const appContext = createContext<TAppConextType>(appDefaultValues);
@@ -14,7 +17,13 @@ export const AppProvider = ({ children }: TAppContextProps) => {
   const [light, setLight] = useState<boolean>(appDefaultValues.light)
   const [spanish, setSpanish] = useState<boolean>(appDefaultValues.spanish)
 
-  const changeTema = () => setLight(!light)
+  const changeTema = () => {
+    localStorage.setItem('light', `${!light}`)
+    setLight(!light)
+  }
+
+  const initialTema = (state:boolean) => setLight(state)
+
 
   const changeLanguage = () => setSpanish(!spanish)
 
@@ -22,7 +31,8 @@ export const AppProvider = ({ children }: TAppContextProps) => {
     light,
     spanish,
     changeTema,
-    changeLanguage
+    changeLanguage,
+    initialTema
   }
 
   return (

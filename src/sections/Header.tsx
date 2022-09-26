@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { VisualCode } from "components/VisualCode";
 import { animationLeftToRight, opacity0To100 } from "helpers/listAnimations";
-import { useAppContext } from "@context/temaContext";
+import { useAppContext } from "@context/appContext";
 
 export const Header = () => {
 

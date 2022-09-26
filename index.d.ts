@@ -11,9 +11,10 @@ type TAppContextProps = {
 };
 
 type TAppConextType = {
-  light: boolean;
+  light: boolean|any;
   spanish: boolean;
   children?: ReactNode;
   changeTema: () => void;
   changeLanguage: () => void;
+  initialTema: (state:boolean|any) => void;
 };

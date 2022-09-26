@@ -1,4 +1,4 @@
-import { useAppContext } from "@context/temaContext";
+import { useAppContext } from "@context/appContext";
 import { useHandleWidth } from "hooks/useHandleWidth";
 import Image from "next/image";
 import { NavbarMenu } from "./NavBarMenu";

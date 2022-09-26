@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Toggle } from "./Toggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
-import { useAppContext } from "@context/temaContext";
+import { useAppContext } from "@context/appContext";
 
 const Path = (props: any) => {
   const { light } = useAppContext();
