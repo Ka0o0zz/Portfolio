@@ -3,15 +3,17 @@ import { Toggle } from "./Toggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { useAppContext } from "@context/temaContext";
 
-const Path = (props: any) => (
-  <motion.path
+const Path = (props: any) => {
+  const { light } = useAppContext();
+
+  return <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="#fff"
+    stroke={light ? '#000' : '#fff'}
     strokeLinecap="round"
     {...props}
   />
-);
+}
 
 const MenuToggle = ({ toggle }: any) => (
   <button onClick={toggle}>
@@ -60,7 +62,7 @@ export const NavbarMenu = () => {
             whileInView={{ x: [300, 0] }}
             transition={{ duration: 0.85, ease: "easeInOut" }}
             exit={{ x: [0, 1000] }}
-            className="app__navbar-list-menu"
+            className={`app__navbar-list-menu ${light ? "light" : ""}`}
           >
             <h3>Sections</h3>
             <ul>

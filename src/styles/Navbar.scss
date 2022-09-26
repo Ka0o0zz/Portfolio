@@ -139,6 +139,10 @@ nav {
 
         background: $dark-color-bg;
 
+        &.light{
+            background: $light-color-bg;
+        }
+
         padding: 1rem 1.5rem;
         padding-top: 80px ;
 
@@ -178,9 +182,9 @@ nav {
                 align-items: center;
 
                 a {
-                    color: #fff;
                     text-decoration: none;
                     text-transform: capitalize;
+                    transition: all 0.3s ease-in-out;
                 }
 
                 div{

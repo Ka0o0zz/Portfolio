@@ -94,6 +94,9 @@ $principal-font: 'Poppins', sans-serif;
                 }
 
                 background: none;
+                &.light {
+                    background: none;
+                }
 
                 div,
                 .mouse {
