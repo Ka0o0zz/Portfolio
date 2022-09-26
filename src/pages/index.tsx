@@ -5,12 +5,12 @@ import type { NextPage } from "next";
 import { Header } from "sections/Header";
 
 const Home: NextPage = () => {
-  const { light, spanish } = useAppContext()
+  const { light, spanish } = useAppContext();
 
-  useHandleInitialState()
+  useHandleInitialState();
 
   return (
-    <div className={`color__app ${light ? 'light' : ''}`}>
+    <div className={`color__app ${light ? "light" : ""}`}>
       <Navbar />
       <main className="main-app">
         <Header />

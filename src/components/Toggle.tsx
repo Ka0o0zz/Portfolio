@@ -1,4 +1,10 @@
-export const Toggle = ({ emojiTrue, emojiFalse, section, state, updateState }: Ttoggle) => {
+export const Toggle = ({
+  emojiTrue,
+  emojiFalse,
+  section,
+  state,
+  updateState,
+}: Ttoggle) => {
   return (
     <div>
       <input

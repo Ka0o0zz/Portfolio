@@ -6,14 +6,16 @@ import { useAppContext } from "@context/appContext";
 const Path = (props: any) => {
   const { light } = useAppContext();
 
-  return <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke={light ? '#000' : '#fff'}
-    strokeLinecap="round"
-    {...props}
-  />
-}
+  return (
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke={light ? "#000" : "#fff"}
+      strokeLinecap="round"
+      {...props}
+    />
+  );
+};
 
 const MenuToggle = ({ toggle }: any) => (
   <button onClick={toggle}>
