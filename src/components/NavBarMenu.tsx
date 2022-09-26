@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Toggle } from "./Toggle";
-import { BsLinkedin, BsGithub } from 'react-icons/bs'
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { useAppContext } from "@context/temaContext";
 
 const Path = (props: any) => (
   <motion.path
@@ -41,6 +42,7 @@ const MenuToggle = ({ toggle }: any) => (
 
 export const NavbarMenu = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const { light, changeTema } = useAppContext();
 
   return (
     <>
@@ -57,7 +59,7 @@ export const NavbarMenu = () => {
           <motion.div
             whileInView={{ x: [300, 0] }}
             transition={{ duration: 0.85, ease: "easeInOut" }}
-            exit={{ x: [0, 1000]}}
+            exit={{ x: [0, 1000] }}
             className="app__navbar-list-menu"
           >
             <h3>Sections</h3>
@@ -74,16 +76,18 @@ export const NavbarMenu = () => {
 
             <h3>Languages</h3>
             <ul>
-              <li>
-                English
-              </li>
-              <li>
-                Spanish
-              </li>
+              <li>English</li>
+              <li>Spanish</li>
             </ul>
 
             <h3>Settings</h3>
-            <Toggle emojiTrue="☀️" emojiFalse="🌙" section="menu"/>
+            <Toggle
+              emojiTrue="☀️"
+              emojiFalse="🌙"
+              section="menu"
+              state={light}
+              updateState={changeTema}
+            />
 
             <h3>Social Media</h3>
             <ul>
@@ -94,7 +98,6 @@ export const NavbarMenu = () => {
                 <BsLinkedin /> Linkedin
               </li>
             </ul>
-
           </motion.div>
         )}
       </AnimatePresence>
